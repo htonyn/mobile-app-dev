@@ -12,6 +12,10 @@ import android.view.MenuItem;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+// The R object is based on the resource folder. If you have an error with R, then you have errors
+// within your resource folder. The errors most likely  lies within the .xml files you created
+// You must fix those prior to fixing the ones in the java files
+
 public class MainActivity extends AppCompatActivity {
 
     private ImageButton bt1;
@@ -36,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(v.getContext(),"Button1 was clicked",Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(v.getContext(), ViewPagerActivity.class);
+                startActivity(intent);
             }
         }
         );
@@ -54,3 +60,5 @@ public class MainActivity extends AppCompatActivity {
     }
 }
 
+// If a user clicks a button multiple times, you should use the setOnClickListener so that you
+// can save on resources.
