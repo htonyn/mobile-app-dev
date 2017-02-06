@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 import ponkberry.hoandemo.R;
 
 /**
@@ -19,16 +21,17 @@ public class ListViewAdapter extends BaseAdapter {
 
     private Context mContext;
     private final LayoutInflater mInflater;
+    private final ArrayList<String> listResult;
 
-
-    public ListViewAdapter(Context context) {
+    public ListViewAdapter(Context context, ArrayList<String> listResult) {
         this.mContext = context;
+        this.listResult = listResult;
         mInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
     @Override
     public int getCount() {
-        return 100;
+        return listResult.size();
     }
     // This is the number of items the list can view
     @Override
@@ -63,6 +66,7 @@ public class ListViewAdapter extends BaseAdapter {
         }
         holder.textView1.setText(String.valueOf(position));
         holder.textView3.setText(String.valueOf(position));
+        holder.textView2.setText(listResult.get(position));
         if (position%2 == 0) {
             holder.textView1.setVisibility(View.VISIBLE);
             holder.textView3.setVisibility(View.INVISIBLE);

@@ -6,17 +6,20 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import ponkberry.hoandemo.util.UtilLog;
+
 // The R object is based on the resource folder. If you have an error with R, then you have errors
 // within your resource folder. The errors most likely  lies within the .xml files you created
 // You must fix those prior to fixing the ones in the java files
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     private ImageButton bt1;
     private ImageButton bt3;
@@ -49,14 +52,20 @@ public class MainActivity extends AppCompatActivity {
         bt3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    Intent intent = new Intent(v.getContext(), ListViewActivity.class);
-                    startActivity(intent);
+                toActivity(ListViewActivity.class);
+//                    Intent intent = new Intent(v.getContext(), ListViewActivity.class);
+//                    startActivity(intent);
             }
         }
         );
     }
     public void onClick(View v) {
-        Toast.makeText(this,"Button2 was clicked",Toast.LENGTH_LONG).show();
+//        Toast.makeText(this,"Button2 was clicked",Toast.LENGTH_LONG).show();
+        toastLong("Button2 was clicked.");
+        UtilLog.logD("testD","Toast");
+        //Log.d("testD","Toast");
+        //Log.e("testE","Toast");
+
     }
 }
 
