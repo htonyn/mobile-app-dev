@@ -5,11 +5,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
 import ponkberry.hoandemo.R;
+import ponkberry.hoandemo.util.UtilDensity;
 
 /**
  * Created by Ponk on 1/25/2017.
@@ -24,7 +26,7 @@ public class ListViewAdapter extends BaseAdapter {
     private final ArrayList<String> listResult;
 
     public ListViewAdapter(Context context, ArrayList<String> listResult) {
-        this.mContext = context;
+        mContext = context;
         this.listResult = listResult;
         mInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
@@ -70,9 +72,18 @@ public class ListViewAdapter extends BaseAdapter {
         if (position%2 == 0) {
             holder.textView1.setVisibility(View.VISIBLE);
             holder.textView3.setVisibility(View.INVISIBLE);
+            holder.lp.setMargins(UtilDensity.dip2px(mContext,50),0,0,0);
+            holder.lp.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
+            holder.textView2.setBackgroundResource(R.drawable.chatfrom_bg_focused);
+            holder.textView2.setLayoutParams(holder.lp);
         } else {
             holder.textView1.setVisibility(View.INVISIBLE);
             holder.textView3.setVisibility(View.VISIBLE);
+            holder.lp.setMargins(0,0, UtilDensity.dip2px(mContext,50),0);
+            holder.lp.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+            // Java must use pixels, not dots so you have to convert all dots to pixels
+            holder.textView2.setBackgroundResource(R.drawable.chatto_bg_focused);
+            holder.textView2.setLayoutParams(holder.lp);
         }
 
 //        View rowView = mInflater.inflate(R.layout.list_item, parent, false);
@@ -99,4 +110,5 @@ class ViewHolder {
     TextView textView1;
     TextView textView2;
     TextView textView3;
+    RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
 }

@@ -6,9 +6,12 @@
     tools:context="ponkberry.hoandemo.fragment.ContentFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:scaleType="center"
+        android:src="@mipmap/pic1"/>
+
+    <!--Using src will retain the the picture's original dimensions. Using bckground will stretch-->
 
 </FrameLayout>
