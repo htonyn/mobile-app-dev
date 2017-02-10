@@ -24,7 +24,7 @@
         android:layout_height="match_parent"
         android:layout_centerInParent="true"
         android:gravity="center"
-        android:hint="@string/hint"
+        android:hint="@string/app_name"
         android:textSize="26sp"/>
 
     <TextView

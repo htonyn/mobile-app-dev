@@ -72,6 +72,7 @@ public class ListViewAdapter extends BaseAdapter {
         if (position%2 == 0) {
             holder.textView1.setVisibility(View.VISIBLE);
             holder.textView3.setVisibility(View.INVISIBLE);
+            // Don't use ViewHolder for layout parameter
             holder.lp.setMargins(UtilDensity.dip2px(mContext,50),0,0,0);
             holder.lp.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
             holder.textView2.setBackgroundResource(R.drawable.chatfrom_bg_focused);
