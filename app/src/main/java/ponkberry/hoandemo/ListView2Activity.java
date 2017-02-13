@@ -1,8 +1,8 @@
 package ponkberry.hoandemo;
 
+import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -15,15 +15,15 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import ponkberry.hoandemo.adapter.ListViewAdapter;
-import ponkberry.hoandemo.adapter.ViewPagerAdapter;
 
-public class ListViewActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
+public class ListView2Activity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
     // In order to use on click for the list view, you need to implement the listener for the
     // on click
 
     private ListView listView;
     private ArrayList<String> listResult;
+    private ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

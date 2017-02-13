@@ -13,6 +13,8 @@ import android.view.MenuItem;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 import ponkberry.hoandemo.util.UtilLog;
 
 // The R object is based on the resource folder. If you have an error with R, then you have errors
@@ -24,12 +26,19 @@ public class MainActivity extends BaseActivity {
     private ImageButton bt1;
     private ImageButton bt3;
 
+    @OnClick(R.id.bt2)
+    public void button2Click() {
+        toActivity(DialogActivity.class);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initialView();
         initialListener();
+        // Must have ButterKnife dependency
+        ButterKnife.bind(this);
     }
 
     private void initialView() {
@@ -65,7 +74,6 @@ public class MainActivity extends BaseActivity {
         UtilLog.logD("testD","Toast");
         //Log.d("testD","Toast");
         //Log.e("testE","Toast");
-
     }
 }
 
