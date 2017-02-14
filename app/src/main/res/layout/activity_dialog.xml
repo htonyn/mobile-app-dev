@@ -38,7 +38,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="left|center_vertical"
-            android:text="NormalDialog"/>
+            android:text="MultiChoiceDialog"/>
 
         <RadioButton
             android:id="@+id/rb5"
@@ -46,7 +46,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="left|center_vertical"
-            android:text="NormalDialog"/>
+            android:text="WaitingDialog"/>
 
         <RadioButton
             android:id="@+id/rb6"
@@ -54,7 +54,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="left|center_vertical"
-            android:text="NormalDialog"/>
+            android:text="ProgressDialog"/>
 
         <RadioButton
             android:id="@+id/rb7"
@@ -62,7 +62,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="left|center_vertical"
-            android:text="NormalDialog"/>
+            android:text="InputDialog"/>
 
         <RadioButton
             android:id="@+id/rb8"
@@ -70,7 +70,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="left|center_vertical"
-            android:text="NormalDialog"/>
+            android:text="Dialog"/>
 
 
 
@@ -78,7 +78,7 @@
     </RadioGroup>
 
     <Button
-        android:id="@+id/dialogue_ok"
+        android:id="@+id/dialog_ok"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:gravity="center"
