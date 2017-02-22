@@ -1,5 +1,7 @@
 package ponkberry.hoandemo;
 
+import android.content.Intent;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,6 +18,14 @@ import java.util.ArrayList;
 
 import ponkberry.hoandemo.adapter.ListViewAdapter;
 import ponkberry.hoandemo.adapter.ViewPagerAdapter;
+import ponkberry.hoandemo.fragment.EighthFragment;
+import ponkberry.hoandemo.fragment.FifthFragment;
+import ponkberry.hoandemo.fragment.FirstFragment;
+import ponkberry.hoandemo.fragment.FourthFragment;
+import ponkberry.hoandemo.fragment.SecondFragment;
+import ponkberry.hoandemo.fragment.SeventhFragment;
+import ponkberry.hoandemo.fragment.SixthFragment;
+import ponkberry.hoandemo.fragment.ThirdFragment;
 
 public class ListViewActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
@@ -24,6 +34,8 @@ public class ListViewActivity extends AppCompatActivity implements AdapterView.O
 
     private ListView listView;
     private ArrayList<String> listResult;
+    private ViewPager viewPager;
+    private ArrayList<Fragment> fragmentList = new ArrayList<Fragment>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +61,7 @@ public class ListViewActivity extends AppCompatActivity implements AdapterView.O
         listResult.add("L");
         listResult.add("M");
         listResult.add("N");
-        listResult.add("O");
+        listResult.add("OOOOOOOOOOOO");
         listResult.add("P");
         listResult.add("Q");
     }
@@ -60,6 +72,21 @@ public class ListViewActivity extends AppCompatActivity implements AdapterView.O
         // Parameters for inflate is the layout file, and its group
         // Inflater finds the view
         LinearLayout listViewHeader = (LinearLayout) view.findViewById(R.id.list_view_header);
+
+        viewPager = (ViewPager) view.findViewById(R.id.list_view_pager);
+        fragmentList.add(new FirstFragment());
+        fragmentList.add(new SecondFragment());
+        fragmentList.add(new ThirdFragment());
+        fragmentList.add(new FourthFragment());
+        fragmentList.add(new FifthFragment());
+        fragmentList.add(new SixthFragment());
+        fragmentList.add(new SeventhFragment());
+        fragmentList.add(new EighthFragment());
+        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(this.getSupportFragmentManager());
+        // ViewPagerAdapter must accept a Fragment Manager as a parameter
+        viewPagerAdapter.setContent(fragmentList);
+        viewPager.setAdapter(viewPagerAdapter);
+
         ListViewAdapter listViewAdapter = new ListViewAdapter(this, listResult);
         // We use this which references the current class 'ListViewActivity' so the activity
         // is the context. The context contains less information than the activity.
@@ -84,5 +111,13 @@ public class ListViewActivity extends AppCompatActivity implements AdapterView.O
         // Now if you add a header, then it becomes the first element giving it position 0. Then the
         // item list will display its first element as 1 now.
         Log.d("testListViewActivity",String.valueOf(position));
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent();
+        intent.putExtra("message","ListViewActivity");
+        setResult(RESULT_OK, intent);
+        super.onBackPressed();
     }
 }

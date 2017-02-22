@@ -1,10 +1,12 @@
 package ponkberry.hoandemo.adapter;
 
 import android.content.Context;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -12,6 +14,8 @@ import java.util.ArrayList;
 
 import ponkberry.hoandemo.R;
 import ponkberry.hoandemo.util.UtilDensity;
+
+import static ponkberry.hoandemo.R.id.list_view_tv1;
 
 /**
  * Created by Ponk on 1/25/2017.
@@ -57,7 +61,7 @@ public class ListViewAdapter extends BaseAdapter {
         if(convertView == null) { // Null means first time
             convertView = mInflater.inflate(R.layout.list_item, parent, false);
             holder = new ViewHolder();
-            holder.textView1 = (TextView) convertView.findViewById(R.id.list_view_tv1);
+            holder.textView1 = (TextView) convertView.findViewById(list_view_tv1);
             holder.textView2 = (TextView) convertView.findViewById(R.id.list_view_tv2);
             holder.textView3 = (TextView) convertView.findViewById(R.id.list_view_tv3);
 
@@ -73,18 +77,20 @@ public class ListViewAdapter extends BaseAdapter {
             holder.textView1.setVisibility(View.VISIBLE);
             holder.textView3.setVisibility(View.INVISIBLE);
             // Don't use ViewHolder for layout parameter
-            holder.lp.setMargins(UtilDensity.dip2px(mContext,50),0,0,0);
-            holder.lp.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
+            holder.llp.setMargins(UtilDensity.dip2px(mContext,50),0,0,0);
+            //holder.lp.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
+            holder.llp.gravity = Gravity.LEFT;
             holder.textView2.setBackgroundResource(R.drawable.chatfrom_bg_focused);
-            holder.textView2.setLayoutParams(holder.lp);
+            holder.textView2.setLayoutParams(holder.llp);
         } else {
             holder.textView1.setVisibility(View.INVISIBLE);
             holder.textView3.setVisibility(View.VISIBLE);
-            holder.lp.setMargins(0,0, UtilDensity.dip2px(mContext,50),0);
-            holder.lp.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+            holder.llp.gravity = Gravity.RIGHT;
+            holder.llp.setMargins(0,0, UtilDensity.dip2px(mContext,50),0);
+            //holder.lp.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
             // Java must use pixels, not dots so you have to convert all dots to pixels
             holder.textView2.setBackgroundResource(R.drawable.chatto_bg_focused);
-            holder.textView2.setLayoutParams(holder.lp);
+            holder.textView2.setLayoutParams(holder.llp);
         }
 
 //        View rowView = mInflater.inflate(R.layout.list_item, parent, false);
@@ -112,4 +118,5 @@ class ViewHolder {
     TextView textView2;
     TextView textView3;
     RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+    LinearLayout.LayoutParams llp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.WRAP_CONTENT);
 }

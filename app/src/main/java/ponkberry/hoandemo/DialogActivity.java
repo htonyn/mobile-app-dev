@@ -2,6 +2,7 @@ package ponkberry.hoandemo;
 
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.v7.app.AlertDialog;
@@ -13,6 +14,7 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import ponkberry.hoandemo.dialog.CustomDialog;
 
 /**
  * Created by Ponk on 2/13/2017.
@@ -48,9 +50,34 @@ public class DialogActivity extends BaseActivity {
                 inputDialog();
                 break;
             case R.id.rb8:
+                customDialog();
                 break;
             default:
         }
+    }
+
+    private void customDialog() {
+        final CustomDialog dialog = new CustomDialog(this, new CustomDialog.ICustomDialogEventListener() {
+            @Override
+            public void onClickListener() {
+//                dialog.dismiss();
+                // You cannot place dialog here because dialog is currently being initialize in
+                // this line, so you cannot use this to call to dismiss the dialog because
+                // it does not reference anything currently
+                //toastShort("OK Button was clicked.");
+
+                Intent intent = new Intent();
+                intent.putExtra("message","Dialog");
+                setResult(RESULT_OK, intent);
+
+
+                // If you want to finish an activity manually, use the below;
+                finish();
+            }
+        });
+//        CustomDialog dialog = new CustomDialog(this);
+        dialog.setTitle("TestTitle");
+        dialog.show();
     }
 
     private void inputDialog() {
@@ -66,7 +93,6 @@ public class DialogActivity extends BaseActivity {
         });
         inputDialog.setNegativeButton("Cancel", null).show();
     }
-
 
     private void progressDialog() {
         final int MAX_PROGRESS = 100;
@@ -216,11 +242,6 @@ public class DialogActivity extends BaseActivity {
         });
                 builder.show();
     }
-
-
-
-    public void showDialog() {}
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

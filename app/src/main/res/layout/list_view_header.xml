@@ -4,15 +4,22 @@
     android:id="@+id/list_view_header"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="100dp"
+    android:layout_height="200dp"
     android:background="@color/white">
 
-    <TextView
+    <android.support.v4.view.ViewPager
+        android:id="@+id/list_view_pager"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:textSize="40sp"
-        android:gravity="center"
-        android:textColor="@color/black"
-        android:text="ListViewHeader"/>
+        android:layout_height="250dp"
+        android:background="@android:color/darker_gray">
+    </android.support.v4.view.ViewPager>
+
+    <!--<TextView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="100dp"-->
+        <!--android:textSize="40sp"-->
+        <!--android:gravity="center"-->
+        <!--android:textColor="@color/black"-->
+        <!--android:text="ListViewHeader"/>-->
 
 </LinearLayout>

@@ -14,6 +14,8 @@ import java.util.ArrayList;
 public class ViewPagerAdapter extends FragmentPagerAdapter {
 
     private ArrayList<Fragment> fragmentList;
+    private static final String[] tabHeaders = new String[] { "History", "Content", "Login" };
+    private static final String[] tabTyping = new String[] { "Cen", "CenCrop", "CenIn", "FitCen", "FitEnd", "FitStart", "FitXY", "Matrix" };
 
     public ViewPagerAdapter(FragmentManager fm) {
         super(fm);
@@ -35,7 +37,9 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public CharSequence getPageTitle(int position) {
-        return fragmentList.get(position).getClass().getName();
+        return tabHeaders[position % tabHeaders.length];
+//        return tabTyping[position % tabTyping.length];
+//        return fragmentList.get(position).getClass().getName();
     }
 
     @Override
