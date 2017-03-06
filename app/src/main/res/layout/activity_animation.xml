@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/anim_alpha"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Alpha"
+            android:textAllCaps="false"
+            android:layout_weight="1"/>
+
+        <Button
+            android:id="@+id/anim_scale"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Scale"
+            android:textAllCaps="false"
+            android:layout_weight="1"/>
+
+        <Button
+            android:id="@+id/anim_rotate"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Rotate"
+            android:textAllCaps="false"
+            android:layout_weight="1"/>
+
+        <Button
+            android:id="@+id/anim_trans"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Trans"
+            android:textAllCaps="false"
+            android:layout_weight="1"/>
+
+        <Button
+            android:id="@+id/anim_set"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Set"
+            android:textAllCaps="false"
+            android:layout_weight="1"/>
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/animation_tv"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_centerInParent="true"
+        android:text="Animation"
+        android:textAllCaps="false"
+        android:background="@android:color/holo_blue_bright"
+        android:textSize="50sp"/>
+
+</RelativeLayout>

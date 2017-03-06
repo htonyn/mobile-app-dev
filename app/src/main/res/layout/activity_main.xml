@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/black"
-
     tools:context="ponkberry.hoandemo.MainActivity">
 
     <RelativeLayout
@@ -76,10 +75,29 @@
             android:background="@android:color/white"/>
     </LinearLayout>
 
-    <ListView
+    <FrameLayout
         android:layout_above="@id/toolbar"
         android:layout_below="@id/titlebar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white"></ListView>
+        android:background="@android:color/holo_green_light">
+
+        <Button
+            android:id="@+id/main_timer_bt"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:text="Timer"
+            android:textAllCaps="false"
+            android:textSize="20sp"/>
+
+        <Button
+            android:id="@+id/main_animation_bt"
+            android:layout_marginLeft="100dp"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:text="Animation"
+            android:textAllCaps="false"
+            android:textSize="20sp"/>
+
+    </FrameLayout>
 </RelativeLayout>

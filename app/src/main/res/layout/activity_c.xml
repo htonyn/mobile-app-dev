@@ -19,32 +19,36 @@
         android:layout_alignParentBottom="true"
         android:orientation="horizontal">
 
-        <ImageButton
+        <Button
             android:id="@+id/toAStandard"
+            android:text="toA"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="6dp"
             android:layout_weight="1"
             android:background="@android:color/darker_gray"/>
 
-        <ImageButton
+        <Button
             android:id="@+id/toBSingleTop"
+            android:text="toB"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="6dp"
             android:layout_weight="1"
             android:background="@android:color/darker_gray"/>
 
-        <ImageButton
+        <Button
             android:id="@+id/toCSingleTask"
+            android:text="toC"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="6dp"
             android:layout_weight="1"
             android:background="@android:color/darker_gray"/>
 
-        <ImageButton
+        <Button
             android:id="@+id/toDSingleInstance"
+            android:text="toD"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="6dp"

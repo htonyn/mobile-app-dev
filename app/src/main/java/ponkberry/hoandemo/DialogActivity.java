@@ -4,10 +4,15 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.support.annotation.IdRes;
 import android.support.v7.app.AlertDialog;
 import android.widget.EditText;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -23,6 +28,24 @@ import ponkberry.hoandemo.dialog.CustomDialog;
 public class DialogActivity extends BaseActivity {
 
     private int checkedID;
+    public final int DIALOG = 12345;
+    Handler mHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case DIALOG:
+                    Bundle bundle = msg.getData();
+                    String s = bundle.getString("msg");
+                    toastShort("Dialog Message: "+s);
+                    String content = msg.getData().getString("msg");
+                    break;
+                default:
+            }
+            super.handleMessage(msg);
+        }
+    };
+
+            // Make sure to use the android.OS Handler
 
     @BindView(R.id.rdg) RadioGroup radioGroup;
     @OnClick(R.id.dialog_ok)
@@ -103,6 +126,7 @@ public class DialogActivity extends BaseActivity {
         progressDialog.setMax(MAX_PROGRESS);
         progressDialog.show();
 
+        // This creates a new thread
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -116,6 +140,14 @@ public class DialogActivity extends BaseActivity {
                         e.printStackTrace();
                     }
                 }
+                //toastShort("Download Complete");
+                Bundle bundle = new Bundle();
+                bundle.putString("msg","Download succeeded.");
+                Message msg = Message.obtain();
+                msg.what = DIALOG;
+                msg.setData(bundle);
+                //mHandler.handleMessage(msg);
+                mHandler.sendMessage(msg);
                 progressDialog.cancel();
             }
         }).start();

@@ -2,6 +2,7 @@ package ponkberry.hoandemo;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 
 /**
@@ -10,10 +11,10 @@ import android.widget.ImageButton;
 
 public class ActivityC extends BaseActivity {
 
-    private ImageButton toA;
-    private ImageButton toB;
-    private ImageButton toC;
-    private ImageButton toD;
+    private Button toA;
+    private Button toB;
+    private Button toC;
+    private Button toD;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,10 +25,10 @@ public class ActivityC extends BaseActivity {
     }
 
     private void initialButtons() {
-        toA = (ImageButton) findViewById(R.id.toAStandard);
-        toB = (ImageButton) findViewById(R.id.toBSingleTop);
-        toC = (ImageButton) findViewById(R.id.toCSingleTask);
-        toD = (ImageButton) findViewById(R.id.toDSingleInstance);
+        toA = (Button) findViewById(R.id.toAStandard);
+        toB = (Button) findViewById(R.id.toBSingleTop);
+        toC = (Button) findViewById(R.id.toCSingleTask);
+        toD = (Button) findViewById(R.id.toDSingleInstance);
     }
 
     private void initialListener() {

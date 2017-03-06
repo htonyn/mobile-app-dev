@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
@@ -27,6 +28,18 @@ public class MainActivity extends BaseActivity {
     private ImageButton bt1;
     private ImageButton bt3;
     private ImageButton launch_mode;
+    private Button timer;
+    private Button animation;
+
+    @OnClick(R.id.main_timer_bt)
+    public void toTimer() {
+        toActivity(TimerActivity.class);
+    }
+
+    @OnClick(R.id.main_animation_bt)
+    public void toAnimation() {
+        toActivity(AnimationActivity.class);
+    }
 
     @OnClick(R.id.bt2)
     public void button2Click() {
@@ -56,6 +69,8 @@ public class MainActivity extends BaseActivity {
         bt1 = (ImageButton) findViewById(R.id.bt1);
         bt3 = (ImageButton) findViewById(R.id.bt3);
         launch_mode = (ImageButton) findViewById(R.id.launch_mode);
+        timer = (Button) findViewById(R.id.main_timer_bt);
+        animation = (Button) findViewById(R.id.main_animation_bt);
     }
 
     private void initialListener() {
