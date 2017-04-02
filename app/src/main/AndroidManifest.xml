@@ -2,6 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="ponkberry.hoandemo">
 
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
     <application
         android:name=".HoanApplication"
         android:allowBackup="true"
@@ -9,7 +14,13 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".MainActivity">
+
+        <!--<provider-->
+            <!--android:authorities="ponkberry.hoandemo"-->
+            <!--android:name=".content.Provider"-->
+            <!--android:exported="true"/>-->
+
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,18 +30,25 @@
         <activity android:name=".ListViewActivity" />
         <activity android:name=".ViewPagerActivity" />
         <activity android:name=".DialogActivity" />
-        <activity android:name=".ActivityA"
-            android:launchMode="standard"/>
-        <activity android:name=".ActivityB"
-            android:launchMode="singleTop"/>
-        <activity android:name=".ActivityC"
-            android:launchMode="singleTask"/>
-        <activity android:name=".ActivityD"
-            android:launchMode="singleInstance"/>
-        <activity android:name=".BaseActivity"/>
-        <activity android:name=".TimerActivity"/>
-        <activity android:name=".AnimationActivity"/>
-
+        <activity
+            android:name=".ActivityA"
+            android:launchMode="standard" />
+        <activity
+            android:name=".ActivityB"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".ActivityC"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".ActivityD"
+            android:launchMode="singleInstance" />
+        <activity android:name=".BaseActivity" />
+        <activity android:name=".TimerActivity" />
+        <activity android:name=".AnimationActivity" />
+        <activity android:name=".AnimatorActivity" />
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/title_activity_login" />
     </application>
 
 </manifest>

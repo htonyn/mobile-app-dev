@@ -6,13 +6,11 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import android.os.Handler;
-import android.os.Looper;
 import android.os.Message;
 import android.support.annotation.IdRes;
 import android.support.v7.app.AlertDialog;
 import android.widget.EditText;
 import android.widget.RadioGroup;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -44,8 +42,7 @@ public class DialogActivity extends BaseActivity {
             super.handleMessage(msg);
         }
     };
-
-            // Make sure to use the android.OS Handler
+    // Make sure to use the android.OS Handler
 
     @BindView(R.id.rdg) RadioGroup radioGroup;
     @OnClick(R.id.dialog_ok)

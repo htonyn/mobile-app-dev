@@ -29,7 +29,6 @@ public class CustomDialog extends Dialog {
 
     public interface ICustomDialogEventListener{
         public void onClickListener();
-
         //public void customDialogEvent();
     }
 

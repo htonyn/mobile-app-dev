@@ -2,6 +2,7 @@ package ponkberry.hoandemo;
 
 import android.content.Intent;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.NotificationCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -36,6 +37,29 @@ public class ListViewActivity extends AppCompatActivity implements AdapterView.O
     private ArrayList<String> listResult;
     private ViewPager viewPager;
     private ArrayList<Fragment> fragmentList = new ArrayList<Fragment>();
+    private NotificationCompat.Builder mBuilder;
+
+    private void initNotify() {
+        mBuilder = new NotificationCompat.Builder(this);
+//        mBuilder.setContentTitle("Title")
+//                .setContent("Text")
+//                .setContentIntent(getDefaultIntent(NotificationCompat.FLAG_AUTO_CANCEL)));
+    }
+
+    public void showNotify() {
+
+    }
+
+    public void showBigStyleNotify() {
+        NotificationCompat.InboxStyle inboxStyle = new NotificationCompat.InboxStyle();
+        String[] events = new String[] {"Line1", "Line2", "Line3", "Line4", "Line5", };
+        inboxStyle.setBigContentTitle("BigContentTitle");
+        for (int i=0; i < events.length; i++) {
+            //inboxStyle.addLineLength[i];
+        }
+    }
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
